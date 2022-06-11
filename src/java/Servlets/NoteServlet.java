@@ -34,22 +34,24 @@ public class NoteServlet extends HttpServlet {
         titleP = br.readLine();
         contentP = br.readLine();
         
-        request.setAttribute("title", titleP);
-        request.setAttribute("content", contentP);
+//        request.setAttribute("title", titleP);
+//        request.setAttribute("content", contentP);
 
         Note newNote = new Note(titleP, contentP);
         request.setAttribute("note", newNote);
         
         
         String url_edit = request.getParameter("edit");
-        
+        br.close();
         if(url_edit == null){
             // open edit page
             getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
         }else {
             getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp").forward(request, response);
         }
+        
         return;
+        
     }
 
     
@@ -63,16 +65,17 @@ public class NoteServlet extends HttpServlet {
         String titleP = request.getParameter("edit_title");
         String contentP = request.getParameter("edit_content");
         
-        pw.write(titleP);
-        pw.write(contentP);
+        pw.println(titleP);
+        pw.println(contentP);
         
-        request.setAttribute("title", titleP);
-        request.setAttribute("content", contentP);
+//        request.setAttribute("title", titleP);
+//        request.setAttribute("content", contentP);
         
         Note newNote = new Note(titleP, contentP);
         request.setAttribute("note", newNote);
         
         getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
+        pw.close();
         
         return;
         

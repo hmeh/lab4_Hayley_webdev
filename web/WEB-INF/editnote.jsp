@@ -13,8 +13,8 @@
     </head>
     <body>
          <h1>Simple Note Keeper</h1>
-        <h2>View Note</h2>
-         <form method="POST" action="edit">
+        <h2>Edit Note</h2>
+         <form method="POST" action="note">
             <p>Title: <input type="text" name="edit_title" value="${note.title}"></p>
             <p>Contents: <input type="text" name="edit_content" cols="30" rows="10" value="${note.content}"</p>
             <input type="submit" value="Save">
