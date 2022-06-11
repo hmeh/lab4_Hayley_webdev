@@ -19,6 +19,6 @@
         <p><Strong>Contents:${note.content}</Strong></p>
         <p></p>
         
-        <a href="note?edit"> 
+        <a href="note?edit">edit</a>
     </body>
 </html>
